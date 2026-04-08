@@ -1,0 +1,75 @@
+.card {
+  position: relative;
+  background: #e0e0e0;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover .favBtn {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &:hover .imgWrapper img {
+    transform: scale(1.05);
+  }
+}
+
+.imgWrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.loaded {
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+    display: block;
+  }
+}
+
+.favBtn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(4px);
+  color: #bdbdbd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.2s, transform 0.2s, color 0.2s;
+  z-index: 2;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+
+  svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  &.active {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    color: var(--heart);
+  }
+
+  &:hover {
+    background: #fff;
+    color: var(--heart);
+  }
+}
